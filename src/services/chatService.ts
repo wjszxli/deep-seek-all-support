@@ -1,11 +1,11 @@
-import { request, onStreamData } from "../api";
+import { onStreamData, request } from "../api";
 import { IMessage } from "../typings";
 
 export async function fetchChatStream(
   messages: IMessage[],
   callback: (chunk: string) => void
 ) {
-  const data = {
+  const body = {
     model: "deepseek-r1:latest",
     messages: [
       { role: "system", content: "你是一个 AI 助手，请回答用户的问题" },
@@ -17,9 +17,10 @@ export async function fetchChatStream(
   await request({
     url: "http://127.0.0.1:11434/api/chat",
     method: "post",
-    responseType: "stream",
-    data: data,
+    body,
   });
-  // 监听流式数据
-  onStreamData(callback);
+  // // 监听流式数据
+  onStreamData((_event, message) => {
+    callback(message);
+  });
 }

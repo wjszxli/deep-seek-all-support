@@ -1,5 +1,11 @@
 import { ipcRenderer, contextBridge } from "electron";
 
+interface RequestConfig {
+  url: string;
+  method: string;
+  body?: any;
+}
+
 contextBridge.exposeInMainWorld("ipcRenderer", {
   on(...args: Parameters<typeof ipcRenderer.on>) {
     const [channel, listener] = args;
@@ -18,12 +24,5 @@ contextBridge.exposeInMainWorld("ipcRenderer", {
   invoke(...args: Parameters<typeof ipcRenderer.invoke>) {
     const [channel, ...omit] = args;
     return ipcRenderer.invoke(channel, ...omit);
-  },
-});
-
-contextBridge.exposeInMainWorld("api", {
-  request: (config: any) => ipcRenderer.invoke("http-request", config),
-  onStreamData: (callback: (data: string) => void) => {
-    ipcRenderer.on("stream-data", (_, data) => callback(data));
   },
 });

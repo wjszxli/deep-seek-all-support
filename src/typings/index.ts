@@ -4,3 +4,9 @@ export interface ProviderConfig {
   models: { label: string; value: string }[]; // 该服务商支持的模型列表
   apiKeyUrl?: string; // 获取 API Key 的 URL
 }
+
+
+export interface IMessage {
+    role: string;
+    content: string;
+}

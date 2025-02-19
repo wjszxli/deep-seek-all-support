@@ -1,18 +1,14 @@
-import { ipcMain } from "electron";
+import { BrowserWindow, ipcMain } from "electron";
 import axios, { AxiosRequestConfig } from "axios";
 
-declare global {
-  // eslint-disable-next-line no-var
-  var mainWindow: Electron.BrowserWindow | undefined;
-}
-
-export function setupRequestHandlers() {
+export function setupRequestHandlers(win: BrowserWindow) {
   ipcMain.handle(
     "http-request",
-    async (_, config: AxiosRequestConfig & { body?: any }) => {
+    async (_, config: AxiosRequestConfig & { body?: Record<string, unknown> }) => {
       try {
         const { body, ...axiosConfig } = config;
-        console.log('📡 发送请求:', body);
+        console.log("📡 发送请求:", config);
+        axiosConfig.data = JSON.stringify(body);
 
         if (body?.stream === true) {
           const response = await axios({
@@ -21,19 +17,20 @@ export function setupRequestHandlers() {
           });
 
           response.data.on("data", (chunk: Buffer) => {
-            global.mainWindow?.webContents.send(
-              "stream-data",
-              chunk.toString()
-            );
+            const str = chunk.toString();
+            console.log("📡 接收流式数据:", str);
+            win.webContents.send("update-message", str);
           });
 
           return { success: true };
         }
 
         const response = await axios(axiosConfig);
+        console.log("📡 接收的响应数据:", response.data);
         return { success: true, data: response.data };
-      } catch (error: any) {
-        return { success: false, error: error.message };
+      } catch (error) {
+        console.log("📡 请求错误:", error);
+        return { success: false, error: (error as Error).message };
       }
     }
   );

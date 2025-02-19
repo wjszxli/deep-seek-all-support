@@ -7,17 +7,20 @@ import {
   Suggestion,
   XProvider,
 } from "@ant-design/x";
-import { Divider, Flex, message } from "antd";
+import { Button, Divider, Flex, message, Space } from "antd";
 import { useEffect, useState } from "react";
 
 import {
   AlipayCircleOutlined,
   BulbOutlined,
+  CopyOutlined,
   GithubOutlined,
   SmileOutlined,
+  SyncOutlined,
   UserOutlined,
 } from "@ant-design/icons";
 import { fetchChatStream } from "./services/chatService";
+import { tags } from "./utils/constant";
 
 interface IBubbleListProps extends BubbleProps {
   key: number;
@@ -33,6 +36,17 @@ const barAvatar: React.CSSProperties = {
   backgroundColor: "#87d068",
 };
 
+const copyToClipboard = (content: string) => {
+  navigator.clipboard
+    .writeText(content)
+    .then(() => {
+      message.success("内容已复制到剪贴板");
+    })
+    .catch(() => {
+      message.error("复制失败");
+    });
+};
+
 const App = () => {
   const [messages, setMessages] = useState<string | undefined>("");
   const [bubbleList, setBubbleList] = useState<IBubbleListProps[]>([]);
@@ -40,15 +54,6 @@ const App = () => {
 
   const initData = async () => {
     try {
-      // await storage.remove('chatHistory');
-      // const config = await storage.getConfig();
-      // if (!config.selectedProvider) return;
-
-      // const provider = PROVIDERS_DATA[config.selectedProvider];
-      // if (!provider) return;
-
-      // setIsSelectProvider(true);
-
       const bubble: IBubbleListProps = {
         key: Date.now(),
         placement: "start",
@@ -63,6 +68,11 @@ const App = () => {
     } catch (error) {
       console.error("Failed to initialize data:", error);
     }
+  };
+
+  const regenerateResponse = async (message: string) => {
+    setMessages(message);
+    await sendChat();
   };
 
   const sendChat = async () => {
@@ -100,106 +110,94 @@ const App = () => {
 
       // const previousMessages: IMessage[] =
       //   (await storage.get("chatHistory")) || [];
-      const previousMessages = [];
+      // const previousMessages = [];
 
-      const sendMessage = [
-        { role: "user", content: messages },
-      ];
-      await fetchChatStream(sendMessage, (chunk) => {
-        console.log('chunk', chunk)
-      });
-      // let content = "";
-      // let reasoningContent = "";
+      const sendMessage = [{ role: "user", content: messages }];
+
+      let contentMessage = "";
+      let reasoningMessage = "";
       setMessages("AI 在思考中");
 
-      // let isReasoning = false;
+      let isReasoning = false;
 
-      // chatAIStream(sendMessage, async (chunk) => {
-      //   const { data, done } = chunk;
-      //   const { selectedProvider } = await storage.getConfig();
-      //   if (isLocalhost(selectedProvider)) {
-      //     const tagPattern = new RegExp(`<(${tags.join("|")})>`, "i");
-      //     const closeTagPattern = new RegExp(`</(${tags.join("|")})>`, "i");
+      await fetchChatStream(sendMessage, (chunk) => {
+        const data = JSON.parse(chunk);
+        const {
+          message: { content = "" },
+          done,
+        } = data;
+        console.log("data", data);
+        const tagPattern = new RegExp(`<(${tags.join("|")})>`, "i");
+        const closeTagPattern = new RegExp(`</(${tags.join("|")})>`, "i");
 
-      //     const openTagMatch = data.match(tagPattern);
-      //     const closeTagMatch = data.match(closeTagPattern);
+        const openTagMatch = content.match(tagPattern);
+        const closeTagMatch = content.match(closeTagPattern);
 
-      //     if (!isReasoning && openTagMatch) {
-      //       isReasoning = true;
-      //     } else if (isReasoning && !closeTagMatch) {
-      //       reasoningContent += data;
-      //     } else if (isReasoning && closeTagMatch) {
-      //       isReasoning = false;
-      //     } else if (!isReasoning && !done) {
-      //       content += data;
-      //     }
-      //   } else if (!done) {
-      //     if (!data.startsWith("data: ")) return;
+        if (!isReasoning && openTagMatch) {
+          isReasoning = true;
+        } else if (isReasoning && !closeTagMatch) {
+          reasoningMessage += content;
+        } else if (isReasoning && closeTagMatch) {
+          isReasoning = false;
+        } else if (!isReasoning && !done) {
+          contentMessage += content;
+        }
 
-      //     const chunkStringData = data.slice(6);
-      //     const chunkData = JSON.parse(chunkStringData);
-      //     const { choices } = chunkData;
-      //     if (choices?.[0]?.delta?.content) {
-      //       content += chunkData.choices[0].delta.content;
-      //     } else if (choices?.[0]?.delta?.reasoning_content) {
-      //       reasoningContent += chunkData.choices[0].delta.reasoning_content;
-      //     }
-      //   }
+        if (done) {
+          const updatedMessages = [
+            ...sendMessage,
+            { role: "assistant", content: content },
+          ];
+          // await storage.set("chatHistory", updatedMessages);
 
-      //   if (done) {
-      //     const updatedMessages = [
-      //       ...sendMessage,
-      //       { role: "assistant", content: content },
-      //     ];
-      //     await storage.set("chatHistory", updatedMessages);
-
-      //     setMessages(undefined);
-      //     setLoading(false);
-      //     setBubbleList((prevBubbleList) =>
-      //       prevBubbleList.map((bubble) =>
-      //         bubble.key === loadingBubble.key
-      //           ? {
-      //               ...bubble,
-      //               footer: (
-      //                 <Space>
-      //                   <Button
-      //                     color="default"
-      //                     variant="text"
-      //                     size="small"
-      //                     icon={<CopyOutlined />}
-      //                     onClick={() => copyToClipboard(content)}
-      //                   />
-      //                   <Button
-      //                     color="default"
-      //                     variant="text"
-      //                     size="small"
-      //                     icon={<SyncOutlined />}
-      //                     onClick={() => regenerateResponse(content)}
-      //                   />
-      //                 </Space>
-      //               ),
-      //             }
-      //           : bubble
-      //       )
-      //     );
-      //     return;
-      //   } else {
-      //     setBubbleList((prevBubbleList) =>
-      //       prevBubbleList.map((bubble) =>
-      //         bubble.key === loadingBubble.key
-      //           ? {
-      //               ...bubble,
-      //               content: content,
-      //               loading: content ? false : true,
-      //               header: reasoningContent ? (
-      //                 <Think context={reasoningContent} />
-      //               ) : null,
-      //             }
-      //           : bubble
-      //       )
-      //     );
-      //   }
-      // });
+          setMessages(undefined);
+          setLoading(false);
+          setBubbleList((prevBubbleList) =>
+            prevBubbleList.map((bubble) =>
+              bubble.key === loadingBubble.key
+                ? {
+                    ...bubble,
+                    footer: (
+                      <Space>
+                        <Button
+                          color="default"
+                          variant="text"
+                          size="small"
+                          icon={<CopyOutlined />}
+                          onClick={() => copyToClipboard(content)}
+                        />
+                        <Button
+                          color="default"
+                          variant="text"
+                          size="small"
+                          icon={<SyncOutlined />}
+                          onClick={() => regenerateResponse(content)}
+                        />
+                      </Space>
+                    ),
+                  }
+                : bubble
+            )
+          );
+          return;
+        } else {
+          setBubbleList((prevBubbleList) =>
+            prevBubbleList.map((bubble) =>
+              bubble.key === loadingBubble.key
+                ? {
+                    ...bubble,
+                    content: contentMessage,
+                    loading: contentMessage ? false : true,
+                    header: reasoningMessage,
+                    // header: reasoningContent ? (
+                    //   <Think context={reasoningContent} />
+                    // ) : null,
+                  }
+                : bubble
+            )
+          );
+        }
+      });
     } catch (error) {
       message.error(error instanceof Error ? error.message : String(error));
       setLoading(false);

@@ -1,16 +1,16 @@
+import { IpcRendererEvent } from "electron";
+
 interface RequestConfig {
   url: string;
-  method?: 'get' | 'post';
-  responseType?: 'json' | 'stream';
-  data?: any;
+  method?: "get" | "post";
+  responseType?: "json" | "stream";
+  body?: any;
   headers?: Record<string, string>;
 }
 
-
 export async function request<T = any>(config: RequestConfig): Promise<T> {
-  const response = await window.api.request({
-      ...config,
-      body: { stream: config.responseType === 'stream' },
+  const response = await window.ipcRenderer.invoke("http-request", {
+    ...config,
   });
 
   if (!response.success) throw new Error(response.error);
@@ -18,6 +18,8 @@ export async function request<T = any>(config: RequestConfig): Promise<T> {
 }
 
 // 监听流数据
-export function onStreamData(callback: (data: string) => void) {
-  window.api.onStreamData(callback);
+export function onStreamData(
+  listener: (event: IpcRendererEvent, message: string) => void
+) {
+  window.ipcRenderer.on("update-message", listener);
 }
