@@ -10,3 +10,11 @@ export interface IMessage {
     role: string;
     content: string;
 }
+
+export enum ITheme {
+  light = 'light',
+  dark = 'dark',
+  auto = 'auto'
+}
+
+export type ILanguage = 'zh-CN' | 'zh-TW' | 'en-US' | 'ru-RU' | 'ja-JP'
