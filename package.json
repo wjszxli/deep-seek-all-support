@@ -13,10 +13,15 @@
     "@ant-design/x": "^1.0.5",
     "antd": "^5.24.1",
     "axios": "^1.7.9",
+    "i18next": "^24.2.2",
     "mobx": "^6.13.6",
+    "mobx-persist-store": "^1.1.5",
     "mobx-react-lite": "^4.1.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-i18next": "^15.4.1",
+    "react-router-dom": "^7.2.0",
+    "sass-embedded": "^1.85.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.64",
@@ -35,5 +40,26 @@
     "vite-plugin-electron": "^0.28.6",
     "vite-plugin-electron-renderer": "^0.14.5"
   },
-  "main": "dist-electron/main.js"
+  "main": "dist-electron/main.js",
+  "build": {
+    "productName": "deep-seek-all-support",
+    "mac": {
+      "icon": "icons/icon.png",
+      "category": "public.app-category.utilities"
+    },
+    "win": {
+      "icon": "icons/icon.png",
+      "target": [
+        "nsis"
+      ]
+    },
+    "linux": {
+      "icon": "icons/icon.png",
+      "target": [
+        "AppImage",
+        "deb",
+        "rpm"
+      ]
+    }
+  }
 }

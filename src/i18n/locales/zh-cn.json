@@ -1,0 +1,16 @@
+{
+  "translation": {
+    "settings": {
+      "general": {
+        "user_name": "用户名",
+        "user_name.placeholder": "请输入用户名",
+        "user_name.update_success": "用户名更新成功",
+        "user_name.update_error": "用户名更新失败"
+      },
+      "avatar": {
+        "update_success": "头像更新成功",
+        "update_error": "头像更新失败"
+      }
+    }
+  }
+}

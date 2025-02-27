@@ -1,0 +1,16 @@
+{
+  "translation": {
+    "settings": {
+      "general": {
+        "user_name": "ユーザー名",
+        "user_name.placeholder": "ユーザー名を入力してください",
+        "user_name.update_success": "ユーザー名が正常に更新されました。",
+        "user_name.update_error": "ユーザー名の更新に失敗しました"
+      },
+      "avatar": {
+        "update_success": "プロフィール画像が更新されました。",
+        "update_error": "プロフィール画像の更新に失敗しました"
+      }
+    }
+  }
+}

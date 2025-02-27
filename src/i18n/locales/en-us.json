@@ -1,0 +1,16 @@
+{
+  "translation": {
+    "settings": {
+      "general": {
+        "user_name": "Username",
+        "user_name.placeholder": "Please enter your username.",
+        "user_name.update_success": "Username updated successfully.",
+        "user_name.update_error": "Username update failed."
+      },
+      "avatar": {
+        "update_success": "Profile picture updated successfully.",
+        "update_error": "Avatar update failed"
+      }
+    }
+  }
+}

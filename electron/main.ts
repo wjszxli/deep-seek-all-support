@@ -7,7 +7,6 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 process.env.APP_ROOT = path.join(__dirname, "..");
 
-// 🚧 Use ['ENV_NAME'] avoid vite:define plugin - Vite@2.x
 export const VITE_DEV_SERVER_URL = process.env["VITE_DEV_SERVER_URL"];
 export const MAIN_DIST = path.join(process.env.APP_ROOT, "dist-electron");
 export const RENDERER_DIST = path.join(process.env.APP_ROOT, "dist");
@@ -18,9 +17,12 @@ process.env.VITE_PUBLIC = VITE_DEV_SERVER_URL
 
 let win: BrowserWindow | null;
 
+app.dock.setIcon(path.join(__dirname, '../icons/icon.png'));
+
+
 function createWindow() {
   win = new BrowserWindow({
-    icon: path.join(process.env.VITE_PUBLIC, "electron-vite.svg"),
+    icon: path.join(__dirname, "../icons/icon.png"),
     webPreferences: {
       preload: path.join(__dirname, "preload.mjs"),
     },
@@ -28,7 +30,10 @@ function createWindow() {
 
   // 测试通信是否正常
   win.webContents.on("did-finish-load", () => {
-    win?.webContents.send("main-process-message", `通信正常：${new Date().toLocaleString()}`);
+    win?.webContents.send(
+      "main-process-message",
+      `通信正常：${new Date().toLocaleString()}`
+    );
   });
 
   if (VITE_DEV_SERVER_URL) {
@@ -36,7 +41,6 @@ function createWindow() {
   } else {
     win.loadFile(path.join(RENDERER_DIST, "index.html"));
   }
-
 
   setupRequestHandlers(win);
 

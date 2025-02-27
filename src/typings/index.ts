@@ -18,3 +18,19 @@ export enum ITheme {
 }
 
 export type ILanguage = 'zh-CN' | 'zh-TW' | 'en-US' | 'ru-RU' | 'ja-JP'
+
+
+import { MessageInstance } from "antd/es/message/interface";
+import { ModalStaticFunctions } from "antd/es/modal/confirm";
+
+declare global {
+  interface Window {
+    message: MessageInstance;
+    modal: Omit<ModalStaticFunctions, "warn">;
+    electron?: {
+      process?: {
+        platform?: string;
+      };
+    };
+  }
+}

@@ -96,3 +96,7 @@ export const MODIFY_HEADERS_RULE_ID = 1001;
 export const tags = ["think", "reason", "reasoning", "thought"]
 
 export const SHORTCUTS_URL = 'chrome://extensions/shortcuts'
+
+
+
+export { default as UserAvatar } from '@/assets/images/avatar.png'

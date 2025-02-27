@@ -1,0 +1,16 @@
+{
+  "translation": {
+    "settings": {
+      "general": {
+        "user_name": "Имя пользователя",
+        "user_name.placeholder": "Пожалуйста, введите имя пользователя.",
+        "user_name.update_success": "Имя пользователя успешно обновлено.",
+        "user_name.update_error": "Не удалось обновить имя пользователя."
+      },
+      "avatar": {
+        "update_success": "Аватар успешно обновлен.",
+        "update_error": "Не удалось обновить аватар."
+      }
+    }
+  }
+}

@@ -1,18 +1,19 @@
-import { StoreProvider } from "@/providers/StoreProvider";
-import { ThemeProvider } from "@/providers/ThemeProvider";
-import { AntdProvider } from "@/providers/AntdProvider";
-import { ITheme } from "@/typings";
-import Index from "@/pages/Index";
+import { HashRouter, Route, Routes } from "react-router-dom";
+
+// import Index from "@/pages/Index";
+
+import Left from "@/components/Left";
+import { AppProviders } from "./providers";
 
 const App = () => {
   return (
-    <StoreProvider>
-      <ThemeProvider defaultTheme={ITheme.light}>
-        <AntdProvider>
-          <Index />
-        </AntdProvider>
-      </ThemeProvider>
-    </StoreProvider>
+    <AppProviders>
+      <HashRouter>
+        {/* <NavigationHandler /> */}
+        <Left />
+        <Routes>{/* <Route path="/" element={<Index />} /> */}</Routes>
+      </HashRouter>
+    </AppProviders>
   );
 };
 

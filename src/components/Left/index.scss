@@ -1,0 +1,140 @@
+.left-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 0;
+  padding-bottom: 12px;
+  width: var(--sidebar-width);
+  min-width: var(--sidebar-width);
+  height: 100vh;
+  -webkit-app-region: drag !important;
+  border: 1px solid red;
+
+  body.mac & {
+    height: calc(100vh - var(--navbar-height));
+    margin-top: var(--navbar-height);
+  }
+}
+
+// Avatar image styles
+.left-avatar {
+  width: 31px;
+  height: 31px;
+  background-color: var(--color-background-soft);
+  margin-bottom: 12px;
+  border: none;
+  cursor: pointer;
+
+  body.mac & {
+    margin-top: 0;
+  }
+
+  body:not(.mac) & {
+    margin-top: 2px;
+  }
+}
+
+// Content container (middle section)
+.left-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  overflow: hidden;
+  width: 100%;
+}
+
+// Menus style
+.left-menus {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+}
+
+// Bottom menus (settings, theme, etc)
+.left-bottom-menus {
+  margin-top: auto;
+}
+
+// Icon style
+.left-icon {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  -webkit-app-region: none;
+  border: 0.5px solid transparent;
+
+  // Icon inner elements
+  .iconfont,
+  .anticon {
+    color: var(--color-icon);
+    font-size: 20px;
+    text-decoration: none;
+  }
+
+  // Ant Design icons are slightly smaller
+  .anticon {
+    font-size: 17px;
+
+    &.anticon-smaller {
+      font-size: 16px;
+    }
+  }
+
+  // Hover state
+  &:hover {
+    background-color: var(--color-hover);
+    cursor: pointer;
+
+    .iconfont,
+    .anticon {
+      color: var(--color-icon-white);
+    }
+  }
+
+  // Active state
+  &.active {
+    background-color: var(--color-active);
+    border: 0.5px solid var(--color-border);
+
+    .iconfont,
+    .anticon {
+      color: var(--color-icon-white);
+    }
+  }
+}
+
+// Link style
+.left-link {
+  text-decoration: none;
+  -webkit-app-region: none;
+  user-select: none;
+}
+
+// Apps container
+.left-apps-container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-bottom: 10px;
+  -webkit-app-region: none;
+  width: 100%;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+// Divider
+.left-divider {
+  width: 50%;
+  margin: 8px 0;
+  border-bottom: 0.5px solid var(--color-border);
+}

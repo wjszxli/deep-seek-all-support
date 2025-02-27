@@ -27,7 +27,7 @@ export const ThemeProvider: React.FC<IThemeProviderProps> = observer(({
 export const useTheme = () => {
   return {
     theme: themeStore.theme,
-    toggleTheme: themeStore.toggleTheme,
+    changeTheme: themeStore.changeTheme,
     setTheme: themeStore.setTheme,
   };
 };
