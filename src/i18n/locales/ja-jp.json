@@ -11,6 +11,27 @@
         "update_success": "プロフィール画像が更新されました。",
         "update_error": "プロフィール画像の更新に失敗しました"
       }
+    },
+    "chat": {
+      "title": "チャット"
+    },
+    "translate": {
+      "title": "翻訳"
+    },
+    "file": {
+      "title": "ファイル"
+    },
+    "miniApp": {
+      "title": "ミニプログラム"
+    },
+    "knowledgeBase": {
+      "title": "ナレッジベース"
+    },
+    "agent": {
+      "title": "エージェント"
+    },
+    "setting": {
+      "title": "設定"
     }
   }
 }

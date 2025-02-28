@@ -100,3 +100,10 @@ export const SHORTCUTS_URL = 'chrome://extensions/shortcuts'
 
 
 export { default as UserAvatar } from '@/assets/images/avatar.png'
+export { default as ChatIcon } from '@/assets/images/chat.png'
+export { default as TranslateIcon } from '@/assets/images/translate.png'
+export { default as FileIcon } from '@/assets/images/file.png'
+export { default as MiniAppIcon } from '@/assets/images/miniApp.png'
+export { default as KnowledgeBaseIcon } from '@/assets/images/knowledgeBase.png'
+export { default as AgentIcon } from '@/assets/images/agent.png'
+export { default as SettingIcon } from '@/assets/images/setting.png'

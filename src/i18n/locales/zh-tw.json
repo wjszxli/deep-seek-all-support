@@ -11,6 +11,27 @@
         "update_success": "頭像更新成功",
         "update_error": "頭像更新失敗"
       }
+    },
+    "chat": {
+      "title": "聊天"
+    },
+    "translate": {
+      "title": "翻译"
+    },
+    "file": {
+      "title": "文件"
+    },
+    "miniApp": {
+      "title": "小程序"
+    },
+    "knowledgeBase": {
+      "title": "知識庫"
+    },
+    "agent": {
+      "title": "智能體"
+    },
+    "setting": {
+      "title": "設置"
     }
   }
 }

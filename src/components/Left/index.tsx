@@ -6,6 +6,7 @@ import { FC, useMemo, useCallback, useState } from "react";
 import SetUserAvatar from "@/components/SetUserAvatar";
 
 import "./index.scss";
+import MainMenus from "./components/Menus";
 
 const LeftContainer: FC<{
   children: React.ReactNode;
@@ -64,6 +65,9 @@ const Left: FC = () => {
   return (
     <LeftContainer style={containerStyle}>
       <AvatarComponent src={avatar} />
+      <div className="left-content">
+        <MainMenus />
+      </div>
     </LeftContainer>
   );
 };

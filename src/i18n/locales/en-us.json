@@ -11,6 +11,27 @@
         "update_success": "Profile picture updated successfully.",
         "update_error": "Avatar update failed"
       }
+    },
+    "chat": {
+      "title": "Chat"
+    },
+    "translate": {
+      "title": "Translation"
+    },
+    "file": {
+      "title": "文件"
+    },
+    "miniApp": {
+      "title": "Mini Program"
+    },
+    "knowledgeBase": {
+      "title": "Knowledge base"
+    },
+    "agent": {
+      "title": "Intelligent agent"
+    },
+    "setting": {
+      "title": "Set up"
     }
   }
 }

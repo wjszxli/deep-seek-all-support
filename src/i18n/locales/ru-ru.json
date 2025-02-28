@@ -11,6 +11,27 @@
         "update_success": "Аватар успешно обновлен.",
         "update_error": "Не удалось обновить аватар."
       }
+    },
+    "chat": {
+      "title": "Чат"
+    },
+    "translate": {
+      "title": "Перевод."
+    },
+    "file": {
+      "title": "Документ"
+    },
+    "miniApp": {
+      "title": "мини-программа"
+    },
+    "knowledgeBase": {
+      "title": "База знаний"
+    },
+    "agent": {
+      "title": "Интеллектуальный агент"
+    },
+    "setting": {
+      "title": "Настройка"
     }
   }
 }
