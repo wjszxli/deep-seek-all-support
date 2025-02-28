@@ -7,6 +7,14 @@
   
   .file-header {
     margin-bottom: 20px;
+    
+    h2 {
+      color: var(--text-heading);
+    }
+    
+    .ant-typography {
+      color: var(--text-secondary);
+    }
   }
   
   .file-content {
@@ -27,6 +35,11 @@
         .ant-upload-text {
           font-size: 16px;
           margin-bottom: 8px;
+          color: var(--text-primary);
+        }
+        
+        .ant-upload-hint {
+          color: var(--text-secondary);
         }
       }
     }
@@ -40,6 +53,18 @@
         &:hover {
           background-color: var(--menu-hover-color);
         }
+      }
+      
+      .ant-card-head-title {
+        color: var(--text-heading);
+      }
+      
+      .ant-list-item-meta-title {
+        color: var(--text-heading);
+      }
+      
+      .ant-list-item-meta-description {
+        color: var(--text-secondary);
       }
     }
   }

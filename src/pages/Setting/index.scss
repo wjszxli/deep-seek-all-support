@@ -25,6 +25,14 @@
           border-bottom: none;
         }
       }
+      
+      .ant-list-item-meta-title {
+        color: var(--text-heading);
+      }
+      
+      .ant-list-item-meta-description {
+        color: var(--text-secondary);
+      }
     }
     
     .account-info {
@@ -34,6 +42,10 @@
         display: flex;
         justify-content: space-between;
         margin-bottom: 8px;
+        
+        .ant-typography-secondary {
+          color: var(--text-secondary);
+        }
       }
     }
     

@@ -34,23 +34,23 @@
       transform: scale(1.1);
     }
   }
-}
-
-.menu-icon-container {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-}
-
-.menu-icon {
-  width: 32px;
-  height: 32px;
-  transition: all 0.3s ease;
-  object-fit: contain;
-  filter: var(--menu-icon-filter, none);
+  
+  .menu-icon-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .menu-icon {
+    width: 32px;
+    height: 32px;
+    transition: all 0.3s ease;
+    object-fit: contain;
+    filter: var(--menu-icon-filter, none);
+  }
 }
 
 /* Make icons much brighter in dark mode */

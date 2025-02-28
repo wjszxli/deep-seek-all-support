@@ -1,0 +1,252 @@
+// Typography base styles
+body {
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6,
+.ant-typography h1, .ant-typography h2, .ant-typography h3, 
+.ant-typography h4, .ant-typography h5, .ant-typography h6 {
+  color: var(--text-heading);
+  font-weight: 600;
+}
+
+// Paragraphs and regular text
+p, .ant-typography {
+  color: var(--text-primary);
+}
+
+// Secondary text
+.ant-typography-secondary, 
+.text-secondary {
+  color: var(--text-secondary) !important;
+}
+
+// Links
+a, .ant-typography a {
+  color: var(--text-link);
+  
+  &:hover {
+    color: color-mix(in srgb, var(--text-link), white 20%);
+  }
+}
+
+// Antd specific overrides for dark mode
+body[data-theme='dark'] {
+  // Card titles
+  .ant-card-head-title {
+    color: var(--text-heading);
+  }
+  
+  // List items
+  .ant-list-item-meta-title {
+    color: var(--text-heading);
+  }
+  
+  .ant-list-item-meta-description {
+    color: var(--text-secondary);
+  }
+  
+  // Form labels
+  .ant-form-item-label > label {
+    color: var(--text-primary);
+  }
+  
+  // Table
+  .ant-table {
+    color: var(--text-primary);
+    
+    .ant-table-thead > tr > th {
+      color: var(--text-heading);
+      background: #1d1d1d;
+    }
+  }
+  
+  // Menu text
+  .ant-menu {
+    color: var(--text-primary);
+  }
+  
+  // Button text
+  .ant-btn {
+    &:not(.ant-btn-primary):not(.ant-btn-dangerous):not(.ant-btn-link) {
+      color: var(--text-primary);
+    }
+  }
+  
+  // Dropdown menus
+  .ant-dropdown-menu-item {
+    color: var(--text-primary);
+  }
+  
+  // Tabs
+  .ant-tabs-tab .ant-tabs-tab-btn {
+    color: var(--text-secondary);
+    
+    &:hover {
+      color: var(--text-primary);
+    }
+  }
+  
+  .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+    color: var(--primary-color);
+  }
+}
+
+// Input elements
+input, textarea {
+  color: var(--text-primary);
+  
+  &::placeholder {
+    color: var(--text-tertiary);
+  }
+}
+
+// Select elements
+.ant-select {
+  .ant-select-selection-item {
+    color: var(--text-primary);
+  }
+  
+  .ant-select-arrow {
+    color: var(--text-secondary);
+  }
+}
+
+// Badges and tags
+.ant-badge-count {
+  // Semantic, leave as is
+}
+
+.ant-tag {
+  color: var(--text-secondary);
+  border-color: var(--border-color);
+  
+  &.ant-tag-blue {
+    color: #177ddc;
+    background: #111d2c;
+    border-color: #15395b;
+  }
+  
+  &.ant-tag-red {
+    color: #ff4d4f;
+    background: #2a1215;
+    border-color: #5c2223;
+  }
+  
+  &.ant-tag-green {
+    color: #52c41a;
+    background: #162312;
+    border-color: #274916;
+  }
+}
+
+// Progress elements
+.ant-progress-text {
+  color: var(--text-primary) !important;
+}
+
+// Statistics
+.ant-statistic-title {
+  color: var(--text-secondary);
+}
+
+.ant-statistic-content {
+  color: var(--text-primary);
+}
+
+// Timeline
+.ant-timeline {
+  color: var(--text-primary);
+  
+  .ant-timeline-item-label {
+    color: var(--text-secondary);
+  }
+}
+
+// Tooltips
+.ant-tooltip {
+  .ant-tooltip-inner {
+    color: var(--text-inverted);
+  }
+}
+
+// Empty state
+.ant-empty {
+  .ant-empty-description {
+    color: var(--text-secondary);
+  }
+}
+
+// Additional dark mode overrides
+body[data-theme='dark'] {
+  // Existing rules...
+  
+  // Input fields and selectors
+  .ant-input, 
+  .ant-input-affix-wrapper, 
+  .ant-select-selector,
+  .ant-input-number,
+  .ant-picker {
+    background-color: rgba(255,255,255,0.04);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+    
+    &:hover {
+      border-color: #177ddc;
+    }
+    
+    .ant-input-prefix, 
+    .ant-input-suffix {
+      color: var(--text-secondary);
+    }
+  }
+  
+  // Switch component text
+  .ant-switch {
+    .ant-switch-inner-checked,
+    .ant-switch-inner-unchecked {
+      color: #fff;
+    }
+  }
+  
+  // Card text globally
+  .ant-card {
+    color: var(--text-primary);
+    
+    .ant-card-meta-title {
+      color: var(--text-heading);
+    }
+    
+    .ant-card-meta-description {
+      color: var(--text-secondary);
+    }
+  }
+  
+  // Upload component
+  .ant-upload {
+    &.ant-upload-drag {
+      p.ant-upload-text {
+        color: var(--text-primary);
+      }
+      
+      p.ant-upload-hint {
+        color: var(--text-secondary);
+      }
+    }
+  }
+  
+  // Modal dialogs
+  .ant-modal {
+    .ant-modal-title {
+      color: var(--text-heading);
+    }
+    
+    .ant-modal-content {
+      color: var(--text-primary);
+    }
+  }
+} 

@@ -20,6 +20,7 @@
   
   .section-title {
     margin-bottom: 16px;
+    color: var(--text-heading);
     
     .section-icon {
       margin-right: 8px;
@@ -58,8 +59,20 @@
       margin-bottom: 16px;
     }
     
+    .ant-card-meta-title {
+      color: var(--text-heading);
+    }
+    
+    .ant-card-meta-description {
+      color: var(--text-secondary);
+    }
+    
     .app-tags {
       margin: 12px 0;
+      .ant-tag {
+        color: var(--text-secondary);
+        border-color: var(--border-color);
+      }
     }
     
     .app-button {

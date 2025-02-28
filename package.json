@@ -21,6 +21,7 @@
     "react-dom": "^18.2.0",
     "react-i18next": "^15.4.1",
     "react-router-dom": "^7.2.0",
+    "react-transition-group": "^4.4.5",
     "sass-embedded": "^1.85.1"
   },
   "devDependencies": {

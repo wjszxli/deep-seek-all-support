@@ -16,6 +16,14 @@
       align-items: flex-start;
       gap: 16px;
     }
+    
+    h2 {
+      color: var(--text-heading);
+    }
+    
+    .ant-typography {
+      color: var(--text-secondary);
+    }
   }
   
   .agent-dashboard {
@@ -34,6 +42,7 @@
   
   .section-title {
     margin-bottom: 16px;
+    color: var(--text-heading);
     
     .section-icon {
       margin-right: 8px;
@@ -65,6 +74,10 @@
         display: flex;
         flex-direction: column;
         
+        .agent-name {
+          color: var(--text-heading);
+        }
+        
         .agent-status {
           margin-top: 4px;
         }
@@ -73,6 +86,7 @@
     
     .agent-description {
       margin-bottom: 16px;
+      color: var(--text-secondary);
     }
     
     .agent-progress {
@@ -128,6 +142,7 @@
           
           .stat-label {
             font-size: 14px;
+            opacity: 0.85;
           }
           
           &.success {

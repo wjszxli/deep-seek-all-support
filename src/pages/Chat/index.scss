@@ -24,14 +24,26 @@
       &.ai-message {
         align-self: flex-start;
         background-color: var(--message-ai-bg, #f0f2f5);
+        
+        strong {
+          color: var(--text-heading);
+        }
+        
+        p {
+          color: var(--text-primary);
+        }
       }
       
       &.user-message {
         align-self: flex-end;
         background-color: var(--message-user-bg, #e6f7ff);
         
-        .message-content {
-          text-align: right;
+        strong {
+          color: var(--text-heading);
+        }
+        
+        p {
+          color: var(--text-primary);
         }
       }
     }

@@ -19,6 +19,12 @@ const lightThemeVars = {
   '--content-bg': '#f9f9f9',
   '--message-ai-bg': '#f0f2f5',
   '--message-user-bg': '#e6f7ff',
+  '--text-primary': 'rgba(0, 0, 0, 0.85)',
+  '--text-secondary': 'rgba(0, 0, 0, 0.65)',
+  '--text-tertiary': 'rgba(0, 0, 0, 0.45)',
+  '--text-heading': 'rgba(0, 0, 0, 0.85)',
+  '--text-link': '#1890ff',
+  '--text-inverted': '#ffffff',
 };
 
 const darkThemeVars = {
@@ -32,6 +38,12 @@ const darkThemeVars = {
   '--content-bg': '#141414',
   '--message-ai-bg': '#1f1f1f',
   '--message-user-bg': '#177ddc30',
+  '--text-primary': 'rgba(255, 255, 255, 0.85)',
+  '--text-secondary': 'rgba(255, 255, 255, 0.65)',
+  '--text-tertiary': 'rgba(255, 255, 255, 0.45)',
+  '--text-heading': 'rgba(255, 255, 255, 0.95)',
+  '--text-link': '#177ddc',
+  '--text-inverted': 'rgba(0, 0, 0, 0.85)',
 };
 
 export const ThemeProvider: FC<ThemeProviderProps> = observer(({ children }) => {

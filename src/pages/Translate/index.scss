@@ -6,6 +6,14 @@
   
   .translate-header {
     margin-bottom: 20px;
+    
+    h2 {
+      color: var(--text-heading);
+    }
+    
+    .ant-typography {
+      color: var(--text-secondary);
+    }
   }
   
   .translate-container {
@@ -18,11 +26,26 @@
       
       .language-selector {
         margin-bottom: 15px;
+        
+        .ant-select-selector {
+          color: var(--text-primary);
+        }
+        
+        .ant-select-arrow {
+          color: var(--text-secondary);
+        }
       }
       
       .translate-input, .translate-output {
         width: 100%;
         border-radius: 8px;
+        color: var(--text-primary);
+        background-color: transparent;
+        border-color: var(--border-color);
+        
+        &::placeholder {
+          color: var(--text-tertiary);
+        }
       }
     }
     

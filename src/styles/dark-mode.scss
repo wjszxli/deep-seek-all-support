@@ -1,0 +1,100 @@
+// Dark Mode Specific overrides
+body[data-theme='dark'] {
+  // Add any additional overrides that aren't covered by typography.scss
+  
+  // Badge numbers should be legible
+  .ant-badge-count {
+    color: #fff;
+  }
+  
+  // Tooltips should have proper contrast
+  .ant-tooltip-inner {
+    background-color: #434343;
+  }
+  
+  // Ensure all alerts have proper text colors
+  .ant-alert {
+    &.ant-alert-info {
+      background-color: #111b26;
+      border-color: #15395b;
+      
+      .ant-alert-message {
+        color: #177ddc;
+      }
+      
+      .ant-alert-description {
+        color: var(--text-secondary);
+      }
+    }
+    
+    &.ant-alert-success {
+      background-color: #162312;
+      border-color: #274916;
+      
+      .ant-alert-message {
+        color: #49aa19;
+      }
+      
+      .ant-alert-description {
+        color: var(--text-secondary);
+      }
+    }
+    
+    &.ant-alert-warning {
+      background-color: #2b2111;
+      border-color: #594214;
+      
+      .ant-alert-message {
+        color: #d89614;
+      }
+      
+      .ant-alert-description {
+        color: var(--text-secondary);
+      }
+    }
+    
+    &.ant-alert-error {
+      background-color: #2a1215;
+      border-color: #5c2223;
+      
+      .ant-alert-message {
+        color: #a61d24;
+      }
+      
+      .ant-alert-description {
+        color: var(--text-secondary);
+      }
+    }
+  }
+  
+  // Ensure notification text is readable
+  .ant-notification {
+    .ant-notification-notice-message {
+      color: var(--text-heading);
+    }
+    
+    .ant-notification-notice-description {
+      color: var(--text-secondary);
+    }
+  }
+  
+  // Button text contrast adjustments
+  .ant-btn-text {
+    color: var(--text-secondary);
+    
+    &:hover, &:focus {
+      color: var(--text-primary);
+    }
+  }
+  
+  // Popover text
+  .ant-popover {
+    .ant-popover-title {
+      color: var(--text-heading);
+    }
+    
+    .ant-popover-inner-content {
+      color: var(--text-primary);
+    }
+  }
+} 
