@@ -1,0 +1,94 @@
+.knowledge-base-page {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  overflow: hidden;
+  
+  .knowledge-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+  }
+  
+  .knowledge-search {
+    margin-bottom: 24px;
+  }
+  
+  .knowledge-content {
+    display: flex;
+    gap: 24px;
+    flex: 1;
+    overflow: hidden;
+    
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+    
+    .sidebar {
+      width: 280px;
+      flex-shrink: 0;
+      
+      @media (max-width: 768px) {
+        width: 100%;
+      }
+      
+      .category-tree {
+        height: 100%;
+        
+        .ant-card-body {
+          height: calc(100% - 58px); // Account for card header
+          overflow: auto;
+        }
+      }
+    }
+    
+    .main-content {
+      flex: 1;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      
+      .ant-tabs {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        
+        .ant-tabs-content {
+          flex: 1;
+          overflow: auto;
+        }
+      }
+      
+      .item-tags {
+        margin-top: 8px;
+      }
+      
+      .favorite-btn {
+        &.active {
+          color: gold;
+        }
+      }
+    }
+  }
+}
+
+body[data-theme='dark'] {
+  .knowledge-base-page {
+    .sidebar .category-tree,
+    .main-content .ant-list-item {
+      background-color: #1f1f1f;
+    }
+    
+    .favorite-btn.active {
+      color: gold;
+    }
+  }
+} 

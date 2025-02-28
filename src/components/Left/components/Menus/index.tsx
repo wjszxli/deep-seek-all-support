@@ -60,7 +60,6 @@ const MainMenus: FC = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
-  const { theme } = useTheme();
 
   // Determine active menu item based on current path
   const activePath = useMemo(() => {

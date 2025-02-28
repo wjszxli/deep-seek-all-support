@@ -1,20 +1,13 @@
-import { HashRouter, Route, Routes } from "react-router-dom";
-
-// import Index from "@/pages/Index";
-
-import Left from "@/components/Left";
+import React from "react";
 import { AppProviders } from "./providers";
+import AppRouter from "./router";
 
-const App = () => {
+function App() {
   return (
     <AppProviders>
-      <HashRouter>
-        {/* <NavigationHandler /> */}
-        <Left />
-        <Routes>{/* <Route path="/" element={<Index />} /> */}</Routes>
-      </HashRouter>
+      <AppRouter />
     </AppProviders>
   );
-};
+}
 
 export default App;

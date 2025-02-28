@@ -1,0 +1,192 @@
+.agent-page {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  overflow-y: auto;
+  
+  .agent-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+  }
+  
+  .agent-dashboard {
+    margin-bottom: 32px;
+    
+    .stat-card {
+      height: 100%;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+  
+  .section-title {
+    margin-bottom: 16px;
+    
+    .section-icon {
+      margin-right: 8px;
+      color: var(--primary-color);
+    }
+  }
+  
+  .agent-card {
+    height: 100%;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    &.inactive {
+      opacity: 0.7;
+      filter: grayscale(40%);
+    }
+    
+    .agent-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      
+      .agent-info {
+        display: flex;
+        flex-direction: column;
+        
+        .agent-status {
+          margin-top: 4px;
+        }
+      }
+    }
+    
+    .agent-description {
+      margin-bottom: 16px;
+    }
+    
+    .agent-progress {
+      margin-bottom: 16px;
+    }
+    
+    .agent-stats {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: rgba(0, 0, 0, 0.45);
+      margin-bottom: 16px;
+    }
+    
+    .agent-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+  }
+  
+  .activity-section {
+    .activity-timeline {
+      margin-bottom: 24px;
+      
+      .timeline-content {
+        display: flex;
+        flex-direction: column;
+        
+        .timeline-time {
+          font-size: 12px;
+          color: rgba(0, 0, 0, 0.45);
+        }
+      }
+    }
+    
+    .stats-card {
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        
+        .stat-box {
+          border-radius: 8px;
+          padding: 16px;
+          text-align: center;
+          
+          .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 4px;
+          }
+          
+          .stat-label {
+            font-size: 14px;
+          }
+          
+          &.success {
+            background-color: rgba(82, 196, 26, 0.1);
+            color: #52c41a;
+          }
+          
+          &.processing {
+            background-color: rgba(24, 144, 255, 0.1);
+            color: #1890ff;
+          }
+          
+          &.warning {
+            background-color: rgba(250, 173, 20, 0.1);
+            color: #faad14;
+          }
+          
+          &.error {
+            background-color: rgba(245, 34, 45, 0.1);
+            color: #f5222d;
+          }
+        }
+      }
+    }
+  }
+}
+
+body[data-theme='dark'] {
+  .agent-page {
+    .agent-card, .activity-timeline, .stats-card, .stat-card {
+      background-color: #1f1f1f;
+      
+      &:hover {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      }
+    }
+    
+    .agent-stats, .timeline-time {
+      color: rgba(255, 255, 255, 0.45);
+    }
+    
+    .stats-grid {
+      .stat-box {
+        &.success {
+          background-color: rgba(82, 196, 26, 0.2);
+        }
+        
+        &.processing {
+          background-color: rgba(24, 144, 255, 0.2);
+        }
+        
+        &.warning {
+          background-color: rgba(250, 173, 20, 0.2);
+        }
+        
+        &.error {
+          background-color: rgba(245, 34, 45, 0.2);
+        }
+      }
+    }
+  }
+} 

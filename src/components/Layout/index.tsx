@@ -1,4 +1,8 @@
 import React, { useMemo, createContext, useContext } from "react";
+import { Outlet } from "react-router-dom";
+import MainMenus from "../Left/components/Menus";
+import PageTransition from "../PageTransition";
+import "./index.scss";
 
 // =========== Type System ===========
 type CSSUnit = "px" | "vw" | "vh" | "%" | "rem" | "em";
@@ -387,3 +391,20 @@ export const LayoutThemeProvider: React.FC<{
     </ThemeContext.Provider>
   );
 };
+
+const Layout: React.FC = () => {
+  return (
+    <div className="app-layout">
+      <div className="app-sidebar">
+        <MainMenus />
+      </div>
+      <div className="app-content">
+        <PageTransition>
+          <Outlet />
+        </PageTransition>
+      </div>
+    </div>
+  );
+};
+
+export default Layout;

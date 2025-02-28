@@ -1,0 +1,54 @@
+.setting-page {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  overflow-y: auto;
+  
+  .setting-header {
+    margin-bottom: 24px;
+  }
+  
+  .settings-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    
+    .setting-card {
+      margin-bottom: 16px;
+      
+      .ant-list-item {
+        align-items: center;
+        padding: 16px;
+        
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+    
+    .account-info {
+      margin-bottom: 16px;
+      
+      .info-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8px;
+      }
+    }
+    
+    .account-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+    }
+  }
+}
+
+body[data-theme='dark'] {
+  .setting-page {
+    .setting-card {
+      background-color: #1f1f1f;
+    }
+  }
+} 

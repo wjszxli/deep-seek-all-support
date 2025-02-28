@@ -16,6 +16,9 @@ const lightThemeVars = {
   '--menu-icon-filter': 'none',
   '--menu-icon-active-filter': 'brightness(1.2)',
   '--primary-color': '#1890ff',
+  '--content-bg': '#f9f9f9',
+  '--message-ai-bg': '#f0f2f5',
+  '--message-user-bg': '#e6f7ff',
 };
 
 const darkThemeVars = {
@@ -26,6 +29,9 @@ const darkThemeVars = {
   '--menu-icon-filter': 'brightness(2.5) invert(0.8)',
   '--menu-icon-active-filter': 'brightness(2) invert(0.7) hue-rotate(180deg)',
   '--primary-color': '#1890ff',
+  '--content-bg': '#141414',
+  '--message-ai-bg': '#1f1f1f',
+  '--message-user-bg': '#177ddc30',
 };
 
 export const ThemeProvider: FC<ThemeProviderProps> = observer(({ children }) => {
