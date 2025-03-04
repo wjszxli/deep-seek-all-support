@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
-import axios from 'axios'; // 需要安装: npm install axios
+import axios from 'axios'; 
 import process from 'process';
 
 const __filename = fileURLToPath(import.meta.url);
